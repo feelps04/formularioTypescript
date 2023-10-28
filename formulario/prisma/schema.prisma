@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Definindo o modelo para empresa
+model RowContainer1 {
+  id          String      @id @default(uuid())
+  empresa     String
+  cnpj        String
+  email       String
+  fone        String
+  solicitante String
+}
+
+model RowContainer2 {
+  id                   String      @id @default(uuid())
+  titulo_contratacao   String?
+  modalidade_contratacao String?
+  periodo_contratacao  String?
+  posicao              String?
+  horario_trabalho     String?
+  prioridade_contratacao String?
+  senioridade          String?
+  regime_trabalho      String?
+  budget_maximo        String?
+}
+
